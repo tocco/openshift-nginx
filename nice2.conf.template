@@ -33,7 +33,12 @@ server {
             allow all;
             proxy_pass http://nice;
         }
+{% if NGINX_REDIRECT_TO_HTTPS|default(true) %}
+        if ($http_x_forwarded_proto = "http") {
+            return https://$host$request_uri;
+        }
 
+{% endif %}
         # WebSocket support
         proxy_set_header Upgrade $http_upgrade;
         proxy_set_header Connection $connection_upgrade;
