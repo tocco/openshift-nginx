@@ -33,6 +33,9 @@ http {
           '"language": "$http_x_language", '
           '"client": "$http_x_client", '
           '"timezone": "$http_x_timezone", '
+          '"sec_fetch_dest": "$http_sec_fetch_dest", '
+          '"sec_fetch_mode": "$http_sec_fetch_mode", '
+          '"sec_fetch_site": "$http_sec_fetch_site", '
           '"cache": "$upstream_cache_status" }';
 
     # default: ignore certain paths on 2XX and 3XX status codes
